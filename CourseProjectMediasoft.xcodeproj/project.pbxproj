@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DC286BD1DB0009E992 /* AppDelegate.swift */; };
 		D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */; };
-		D67A72E1286BD1DB0009E992 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72E0286BD1DB0009E992 /* ViewController.swift */; };
+		D67A72E1286BD1DB0009E992 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */; };
 		D67A72E6286BD1E00009E992 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67A72E5286BD1E00009E992 /* Assets.xcassets */; };
 		D67A72E9286BD1E00009E992 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67A72E7286BD1E00009E992 /* LaunchScreen.storyboard */; };
+		D67A72F1286BDBCC0009E992 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72F0286BDBCC0009E992 /* NavigationViewController.swift */; };
+		D67A72F4286BE7870009E992 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72F3286BE7870009E992 /* ProfileViewController.swift */; };
+		D67A72F6286F85970009E992 /* PIcturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72F5286F85950009E992 /* PIcturesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D67A72D9286BD1DB0009E992 /* CourseProjectMediasoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseProjectMediasoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67A72DC286BD1DB0009E992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D67A72E0286BD1DB0009E992 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesViewController.swift; sourceTree = "<group>"; };
 		D67A72E5286BD1E00009E992 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67A72E8286BD1E00009E992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D67A72EA286BD1E00009E992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D67A72F0286BDBCC0009E992 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		D67A72F3286BE7870009E992 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D67A72F5286F85950009E992 /* PIcturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIcturesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D62756332870173200C5B079 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D67A72F5286F85950009E992 /* PIcturesCollectionViewCell.swift */,
+				D67A72F3286BE7870009E992 /* ProfileViewController.swift */,
+				D67A72F0286BDBCC0009E992 /* NavigationViewController.swift */,
+				D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D62756342870175400C5B079 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
 		D67A72D0286BD1DB0009E992 = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +80,8 @@
 			children = (
 				D67A72DC286BD1DB0009E992 /* AppDelegate.swift */,
 				D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */,
-				D67A72E0286BD1DB0009E992 /* ViewController.swift */,
+				D62756332870173200C5B079 /* View */,
+				D62756342870175400C5B079 /* APIService */,
 				D67A72E5286BD1E00009E992 /* Assets.xcassets */,
 				D67A72E7286BD1E00009E992 /* LaunchScreen.storyboard */,
 				D67A72EA286BD1E00009E992 /* Info.plist */,
@@ -71,6 +96,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D67A72ED286BD1E00009E992 /* Build configuration list for PBXNativeTarget "CourseProjectMediasoft" */;
 			buildPhases = (
+				D67A72F2286BDE500009E992 /* ShellScript */,
 				D67A72D5286BD1DB0009E992 /* Sources */,
 				D67A72D6286BD1DB0009E992 /* Frameworks */,
 				D67A72D7286BD1DB0009E992 /* Resources */,
@@ -129,12 +155,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D67A72F2286BDE500009E992 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D67A72D5286BD1DB0009E992 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D67A72E1286BD1DB0009E992 /* ViewController.swift in Sources */,
+				D67A72F1286BDBCC0009E992 /* NavigationViewController.swift in Sources */,
+				D67A72E1286BD1DB0009E992 /* PicturesViewController.swift in Sources */,
+				D67A72F4286BE7870009E992 /* ProfileViewController.swift in Sources */,
+				D67A72F6286F85970009E992 /* PIcturesCollectionViewCell.swift in Sources */,
 				D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */,
 				D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */,
 			);
