@@ -2,17 +2,11 @@ import UIKit
 
 class PicturesViewController: UIViewController {
 
-    let array = [UIImage(named: "image1")!,
-                 UIImage(named: "image2")!,
-                 UIImage(named: "image3")!,
-                 UIImage(named: "image4")!,
-                 UIImage(named: "image5")!,
-                 UIImage(named: "image6")!,
-                 UIImage(named: "image7")!,
-                 UIImage(named: "image8")!,
-                 UIImage(named: "image9")!,
-                 UIImage(named: "image10")!
-                ]
+    var apiDataFetcher = APIDataFetcher()
+    private var searchDebouncerTimer: Timer?
+    private var pictures = [Pictures]()
+    private let itemsPerRow: CGFloat = 2
+    private let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +37,9 @@ class PicturesViewController: UIViewController {
         view.dataSource = self
         view.register(PicturesCollectionViewCell.self,
                       forCellWithReuseIdentifier: PicturesCollectionViewCell.reuseId)
+        view.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        view.contentInsetAdjustmentBehavior = .automatic
+        view.allowsMultipleSelection = true
         return view
     }()
 
@@ -61,7 +58,7 @@ class PicturesViewController: UIViewController {
 extension PicturesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return array.count
+        return pictures.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -72,31 +69,51 @@ extension PicturesViewController: UICollectionViewDelegate, UICollectionViewData
         ) as? PicturesCollectionViewCell else {
             return .init()
         }
-        cell.configCell(image: array[indexPath.row])
+        cell.unsplashPicture = pictures[indexPath.item]
         return cell
     }
 }
 
 // MARK: - EXT SearchBar
 extension PicturesViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        searchDebouncerTimer?.invalidate()
-//
-//        let timer = Timer.scheduledTimer(
-//            withTimeInterval: 1.0,
-//            repeats: false
-//        ) { [weak self] _ in
-//            self?.fireTimer()
-//        }
-//
-//        searchDebouncerTimer = timer
-//    }
-//
-//    private func fireTimer() {
-//        if searchBar.text?.isEmpty ?? true {
-//            updateState(.startScreen)
-//        } else {
-//            output?.search(searchBar.text ?? "")
-//        }
-//    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+
+        searchDebouncerTimer?.invalidate()
+        searchDebouncerTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.apiDataFetcher.fetchImages(searchString: searchText) { [weak self] (searchResult) in
+                guard let fetchedPhotos = searchResult else { return }
+                self?.pictures = fetchedPhotos.results
+                self?.collectionView.reloadData()
+            }
+        })
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension PicturesViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let picture = pictures[indexPath.item]
+        let paddingSpace = sectionInserts.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        let height = CGFloat(picture.height) * widthPerItem / CGFloat(picture.width)
+        return CGSize(width: widthPerItem, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInserts
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInserts.left
+    }
 }

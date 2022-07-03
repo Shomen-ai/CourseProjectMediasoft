@@ -1,9 +1,11 @@
 import UIKit
+import SDWebImage
 
 class PicturesCollectionViewCell: UICollectionViewCell {
 
     static let reuseId = "PicturesCell"
 
+    // MARK: - ImageView
     private let imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +26,19 @@ class PicturesCollectionViewCell: UICollectionViewCell {
 
     func configCell(image: UIImage) {
         imageView.image = image
+    }
+
+    var unsplashPicture: Pictures! {
+        didSet {
+            let pictureUrl = unsplashPicture.urls["regular"]
+            guard let imageUrl = pictureUrl, let url = URL(string: imageUrl) else { return }
+            imageView.sd_setImage(with: url, completed: nil)
+        }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
     }
 
     override init(frame: CGRect) {

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D62756362870671C00C5B079 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62756352870671C00C5B079 /* APIService.swift */; };
+		D627563828719F9400C5B079 /* APIDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627563728719F9400C5B079 /* APIDataFetcher.swift */; };
+		D627563B2871A01700C5B079 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627563A2871A01700C5B079 /* SearchResult.swift */; };
+		D627563E2871BC4E00C5B079 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D627563D2871BC4E00C5B079 /* SDWebImage */; };
+		D62756422871E64D00C5B079 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D62756412871E64D00C5B079 /* .swiftlint.yml */; };
 		D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DC286BD1DB0009E992 /* AppDelegate.swift */; };
 		D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */; };
 		D67A72E1286BD1DB0009E992 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */; };
@@ -18,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D62756352870671C00C5B079 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D627563728719F9400C5B079 /* APIDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataFetcher.swift; sourceTree = "<group>"; };
+		D627563A2871A01700C5B079 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		D62756412871E64D00C5B079 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D67A72D9286BD1DB0009E992 /* CourseProjectMediasoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseProjectMediasoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67A72DC286BD1DB0009E992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D627563E2871BC4E00C5B079 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,13 +65,24 @@
 		D62756342870175400C5B079 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				D62756352870671C00C5B079 /* APIService.swift */,
+				D627563728719F9400C5B079 /* APIDataFetcher.swift */,
 			);
 			path = APIService;
+			sourceTree = "<group>";
+		};
+		D627563928719FF100C5B079 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D627563A2871A01700C5B079 /* SearchResult.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D67A72D0286BD1DB0009E992 = {
 			isa = PBXGroup;
 			children = (
+				D62756412871E64D00C5B079 /* .swiftlint.yml */,
 				D67A72DB286BD1DB0009E992 /* CourseProjectMediasoft */,
 				D67A72DA286BD1DB0009E992 /* Products */,
 			);
@@ -82,6 +103,7 @@
 				D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */,
 				D62756332870173200C5B079 /* View */,
 				D62756342870175400C5B079 /* APIService */,
+				D627563928719FF100C5B079 /* Models */,
 				D67A72E5286BD1E00009E992 /* Assets.xcassets */,
 				D67A72E7286BD1E00009E992 /* LaunchScreen.storyboard */,
 				D67A72EA286BD1E00009E992 /* Info.plist */,
@@ -96,9 +118,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D67A72ED286BD1E00009E992 /* Build configuration list for PBXNativeTarget "CourseProjectMediasoft" */;
 			buildPhases = (
-				D67A72F2286BDE500009E992 /* ShellScript */,
 				D67A72D5286BD1DB0009E992 /* Sources */,
 				D67A72D6286BD1DB0009E992 /* Frameworks */,
+				D67A72F2286BDE500009E992 /* ShellScript */,
 				D67A72D7286BD1DB0009E992 /* Resources */,
 			);
 			buildRules = (
@@ -106,6 +128,9 @@
 			dependencies = (
 			);
 			name = CourseProjectMediasoft;
+			packageProductDependencies = (
+				D627563D2871BC4E00C5B079 /* SDWebImage */,
+			);
 			productName = CourseProjectMediasoft;
 			productReference = D67A72D9286BD1DB0009E992 /* CourseProjectMediasoft.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +159,9 @@
 				Base,
 			);
 			mainGroup = D67A72D0286BD1DB0009E992;
+			packageReferences = (
+				D627563C2871BC4E00C5B079 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = D67A72DA286BD1DB0009E992 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -148,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62756422871E64D00C5B079 /* .swiftlint.yml in Resources */,
 				D67A72E9286BD1E00009E992 /* LaunchScreen.storyboard in Resources */,
 				D67A72E6286BD1E00009E992 /* Assets.xcassets in Resources */,
 			);
@@ -181,8 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D67A72F1286BDBCC0009E992 /* NavigationViewController.swift in Sources */,
+				D627563B2871A01700C5B079 /* SearchResult.swift in Sources */,
+				D62756362870671C00C5B079 /* APIService.swift in Sources */,
 				D67A72E1286BD1DB0009E992 /* PicturesViewController.swift in Sources */,
 				D67A72F4286BE7870009E992 /* ProfileViewController.swift in Sources */,
+				D627563828719F9400C5B079 /* APIDataFetcher.swift in Sources */,
 				D67A72F6286F85970009E992 /* PIcturesCollectionViewCell.swift in Sources */,
 				D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */,
 				D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */,
@@ -395,6 +427,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D627563C2871BC4E00C5B079 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D627563D2871BC4E00C5B079 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D627563C2871BC4E00C5B079 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D67A72D1286BD1DB0009E992 /* Project object */;
 }
