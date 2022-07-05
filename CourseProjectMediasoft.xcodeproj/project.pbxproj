@@ -12,6 +12,11 @@
 		D627563B2871A01700C5B079 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627563A2871A01700C5B079 /* SearchResult.swift */; };
 		D627563E2871BC4E00C5B079 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D627563D2871BC4E00C5B079 /* SDWebImage */; };
 		D62756422871E64D00C5B079 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D62756412871E64D00C5B079 /* .swiftlint.yml */; };
+		D62756442871E9A200C5B079 /* WaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62756432871E9A200C5B079 /* WaterFallLayout.swift */; };
+		D627564A2872003A00C5B079 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = D62756492872003A00C5B079 /* PanModal */; };
+		D627564D2872535C00C5B079 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627564C2872535B00C5B079 /* InfoViewController.swift */; };
+		D627564F28725F3400C5B079 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627564E28725F3400C5B079 /* PaddingLabel.swift */; };
+		D6275651287264FD00C5B079 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6275650287264FD00C5B079 /* InfoModel.swift */; };
 		D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DC286BD1DB0009E992 /* AppDelegate.swift */; };
 		D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */; };
 		D67A72E1286BD1DB0009E992 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */; };
@@ -27,6 +32,10 @@
 		D627563728719F9400C5B079 /* APIDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataFetcher.swift; sourceTree = "<group>"; };
 		D627563A2871A01700C5B079 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		D62756412871E64D00C5B079 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D62756432871E9A200C5B079 /* WaterFallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallLayout.swift; sourceTree = "<group>"; };
+		D627564C2872535B00C5B079 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		D627564E28725F3400C5B079 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		D6275650287264FD00C5B079 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		D67A72D9286BD1DB0009E992 /* CourseProjectMediasoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseProjectMediasoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67A72DC286BD1DB0009E992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D627564A2872003A00C5B079 /* PanModal in Frameworks */,
 				D627563E2871BC4E00C5B079 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,10 +64,9 @@
 		D62756332870173200C5B079 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D67A72F5286F85950009E992 /* PIcturesCollectionViewCell.swift */,
+				D627564B2872531200C5B079 /* PicturesView */,
 				D67A72F3286BE7870009E992 /* ProfileViewController.swift */,
-				D67A72F0286BDBCC0009E992 /* NavigationViewController.swift */,
-				D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */,
+				D627564C2872535B00C5B079 /* InfoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -75,14 +84,25 @@
 			isa = PBXGroup;
 			children = (
 				D627563A2871A01700C5B079 /* SearchResult.swift */,
+				D627564E28725F3400C5B079 /* PaddingLabel.swift */,
+				D6275650287264FD00C5B079 /* InfoModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D627564B2872531200C5B079 /* PicturesView */ = {
+			isa = PBXGroup;
+			children = (
+				D67A72F5286F85950009E992 /* PIcturesCollectionViewCell.swift */,
+				D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */,
+				D62756432871E9A200C5B079 /* WaterFallLayout.swift */,
+			);
+			path = PicturesView;
 			sourceTree = "<group>";
 		};
 		D67A72D0286BD1DB0009E992 = {
 			isa = PBXGroup;
 			children = (
-				D62756412871E64D00C5B079 /* .swiftlint.yml */,
 				D67A72DB286BD1DB0009E992 /* CourseProjectMediasoft */,
 				D67A72DA286BD1DB0009E992 /* Products */,
 			);
@@ -101,12 +121,14 @@
 			children = (
 				D67A72DC286BD1DB0009E992 /* AppDelegate.swift */,
 				D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */,
+				D67A72F0286BDBCC0009E992 /* NavigationViewController.swift */,
 				D62756332870173200C5B079 /* View */,
 				D62756342870175400C5B079 /* APIService */,
 				D627563928719FF100C5B079 /* Models */,
 				D67A72E5286BD1E00009E992 /* Assets.xcassets */,
 				D67A72E7286BD1E00009E992 /* LaunchScreen.storyboard */,
 				D67A72EA286BD1E00009E992 /* Info.plist */,
+				D62756412871E64D00C5B079 /* .swiftlint.yml */,
 			);
 			path = CourseProjectMediasoft;
 			sourceTree = "<group>";
@@ -130,6 +152,7 @@
 			name = CourseProjectMediasoft;
 			packageProductDependencies = (
 				D627563D2871BC4E00C5B079 /* SDWebImage */,
+				D62756492872003A00C5B079 /* PanModal */,
 			);
 			productName = CourseProjectMediasoft;
 			productReference = D67A72D9286BD1DB0009E992 /* CourseProjectMediasoft.app */;
@@ -161,6 +184,7 @@
 			mainGroup = D67A72D0286BD1DB0009E992;
 			packageReferences = (
 				D627563C2871BC4E00C5B079 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				D62756482872003A00C5B079 /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = D67A72DA286BD1DB0009E992 /* Products */;
 			projectDirPath = "";
@@ -209,13 +233,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D627564F28725F3400C5B079 /* PaddingLabel.swift in Sources */,
 				D67A72F1286BDBCC0009E992 /* NavigationViewController.swift in Sources */,
+				D627564D2872535C00C5B079 /* InfoViewController.swift in Sources */,
 				D627563B2871A01700C5B079 /* SearchResult.swift in Sources */,
 				D62756362870671C00C5B079 /* APIService.swift in Sources */,
 				D67A72E1286BD1DB0009E992 /* PicturesViewController.swift in Sources */,
 				D67A72F4286BE7870009E992 /* ProfileViewController.swift in Sources */,
 				D627563828719F9400C5B079 /* APIDataFetcher.swift in Sources */,
+				D62756442871E9A200C5B079 /* WaterFallLayout.swift in Sources */,
 				D67A72F6286F85970009E992 /* PIcturesCollectionViewCell.swift in Sources */,
+				D6275651287264FD00C5B079 /* InfoModel.swift in Sources */,
 				D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */,
 				D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */,
 			);
@@ -437,6 +465,14 @@
 				kind = branch;
 			};
 		};
+		D62756482872003A00C5B079 /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -444,6 +480,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D627563C2871BC4E00C5B079 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		D62756492872003A00C5B079 /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D62756482872003A00C5B079 /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

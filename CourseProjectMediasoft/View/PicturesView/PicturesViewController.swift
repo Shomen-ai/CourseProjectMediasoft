@@ -1,10 +1,12 @@
 import UIKit
+import PanModal
 
 class PicturesViewController: UIViewController {
 
     var apiDataFetcher = APIDataFetcher()
     private var searchDebouncerTimer: Timer?
     private var pictures = [Pictures]()
+
     private let itemsPerRow: CGFloat = 2
     private let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
 
@@ -13,7 +15,13 @@ class PicturesViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         setupNavigationBar()
         view.addSubview(collectionView)
+        view.addSubview(spinner)
         setupCollectionViewConstraints()
+//        if let waterfallLayout = collectionView.collectionViewLayout as? WaterfallLayout {
+//            waterfallLayout.delegate = self
+//        }
+        setupSpinner()
+
     }
     // MARK: - Setup NavBar
     private func setupNavigationBar() {
@@ -40,18 +48,31 @@ class PicturesViewController: UIViewController {
         view.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         view.contentInsetAdjustmentBehavior = .automatic
         view.allowsMultipleSelection = true
+
         return view
     }()
 
     private func setupCollectionViewConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    // MARK: - Setup Spinner
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+
+    private func setupSpinner() {
+        spinner.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
+    }
+
 }
 
 // MARK: - EXT UICollectionView
@@ -77,11 +98,11 @@ extension PicturesViewController: UICollectionViewDelegate, UICollectionViewData
 // MARK: - EXT SearchBar
 extension PicturesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-
+        self.spinner.startAnimating()
         searchDebouncerTimer?.invalidate()
         searchDebouncerTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             self.apiDataFetcher.fetchImages(searchString: searchText) { [weak self] (searchResult) in
+                self?.spinner.stopAnimating()
                 guard let fetchedPhotos = searchResult else { return }
                 self?.pictures = fetchedPhotos.results
                 self?.collectionView.reloadData()
@@ -90,8 +111,7 @@ extension PicturesViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
-
+// MARK: - EXT UICollectionViewDelegateFlowLayout
 extension PicturesViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,
@@ -116,4 +136,36 @@ extension PicturesViewController: UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInserts.left
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = InfoViewController()
+        let userName = pictures[indexPath.item].user.username
+        let name = pictures[indexPath.item].user.name
+        let profileName = "\(name)\n(\(userName))"
+        let description = pictures[indexPath.item].description != nil ?
+        pictures[indexPath.item].description! :
+        "The author did not add a description... Т-Т"
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let time = dateFormatter.date(from: pictures[indexPath.item].created_at)!
+        vc.SDWGetProfileImage = pictures[indexPath.item]
+        vc.SDWGetPicture = pictures[indexPath.item]
+        vc.user = Info(created_at: time,
+                       likes: "\(pictures[indexPath.item].likes)",
+                       descrition: description,
+                       profileName: profileName)
+        print(time)
+        self.presentPanModal(vc)
+    }
 }
+
+// MARK: - WaterfallLayoutDelegate
+//    extension PicturesViewController: WaterfallLayoutDelegate {
+//        func waterfallLayout(_ layout: WaterfallLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//            let photo = pictures[indexPath.item]
+//            //        print("photo.width: \(photo.width) photo.height: \(photo.height)\n")
+//            return CGSize(width: photo.width, height: photo.height)
+//        }
+//    }

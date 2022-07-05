@@ -10,6 +10,8 @@ class PicturesCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        image.layer.cornerRadius = 20
+        image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
         return image
     }()
@@ -22,10 +24,6 @@ class PicturesCollectionViewCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
-    }
-
-    func configCell(image: UIImage) {
-        imageView.image = image
     }
 
     var unsplashPicture: Pictures! {

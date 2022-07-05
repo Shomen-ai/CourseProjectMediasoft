@@ -9,7 +9,24 @@ struct Pictures: Decodable {
     let width: Int
     let height: Int
     let urls: [URLType.RawValue: String]
+    let likes: Int
+    let created_at: String
+    let description: String?
 
+    struct User: Decodable {
+        let id: String
+        let username: String
+        let name: String
+        let profile_image: [ProfileImageURL.RawValue: String]
+
+        enum ProfileImageURL: String {
+            case small
+            case medium
+            case large
+        }
+    }
+
+    let user: User
     enum URLType: String {
         case raw
         case full
@@ -17,11 +34,5 @@ struct Pictures: Decodable {
         case small
         case thumb
     }
-}
-
-struct User: Decodable {
-    let id: Int
-    let description: String?
-    let published_at: String
 }
 
