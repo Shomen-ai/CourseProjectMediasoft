@@ -75,7 +75,7 @@ class PicturesViewController: UIViewController {
 
 }
 
-// MARK: - EXT UICollectionView
+// MARK: - Extension UICollectionView
 extension PicturesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -95,7 +95,7 @@ extension PicturesViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-// MARK: - EXT SearchBar
+// MARK: - Extension SearchBar
 extension PicturesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.spinner.startAnimating()
@@ -111,7 +111,7 @@ extension PicturesViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - EXT UICollectionViewDelegateFlowLayout
+// MARK: - Extension UICollectionViewDelegateFlowLayout
 extension PicturesViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,
@@ -143,8 +143,8 @@ extension PicturesViewController: UICollectionViewDelegateFlowLayout {
         let name = pictures[indexPath.item].user.name
         let profileName = "\(name)\n(\(userName))"
         let description = pictures[indexPath.item].description != nil ?
-        pictures[indexPath.item].description! :
-        "The author did not add a description... Т-Т"
+            pictures[indexPath.item].description! :
+            "The author did not add a description... Т-Т"
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -155,12 +155,11 @@ extension PicturesViewController: UICollectionViewDelegateFlowLayout {
                        likes: "\(pictures[indexPath.item].likes)",
                        descrition: description,
                        profileName: profileName)
-        print(time)
         self.presentPanModal(vc)
     }
 }
 
-// MARK: - WaterfallLayoutDelegate
+// MARK: - Extension WaterfallLayoutDelegate
 //    extension PicturesViewController: WaterfallLayoutDelegate {
 //        func waterfallLayout(_ layout: WaterfallLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //

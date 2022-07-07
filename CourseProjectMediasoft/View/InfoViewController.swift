@@ -122,17 +122,28 @@ class InfoViewController: UIViewController {
         button.layer.cornerRadius = 15
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        button.addTarget(self, action: #selector(action), for: .touchUpInside)
         return button
     }()
 
+    // TODO: Add Action to Like Button
+    @objc func action(sender: UIButton!) {
+
+    }
+
+    //    func showAlert(message: String) {
+    //        let alert = UIAlertController(title: "Ошибка!", message: message,
+    //                                      preferredStyle: UIAlertController.Style.alert)
+    //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+    //        present(alert, animated: true, completion: nil)
+    //    }
+    
     func setupLikeButtonConstraints() {
         NSLayoutConstraint.activate([
             likeButton.trailingAnchor.constraint(equalTo: likesLabel.leadingAnchor, constant: -10),
             likeButton.centerYAnchor.constraint(equalTo: likesLabel.centerYAnchor)
         ])
     }
-
-    // TODO: Add Action to Like Button
 
     // MARK: - Setup Date Label
     private lazy var dateLabel: UILabel = {
@@ -265,7 +276,11 @@ extension InfoViewController: PanModalPresentable {
         return nil
     }
 
+    var cornerRadius: CGFloat {
+        return 25
+    }
 }
+
 // MARK: - Extension ScrollViewDelegate
 extension InfoViewController: UIScrollViewDelegate {
 }

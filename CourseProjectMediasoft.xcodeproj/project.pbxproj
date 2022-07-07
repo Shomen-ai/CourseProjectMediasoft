@@ -17,6 +17,8 @@
 		D627564D2872535C00C5B079 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627564C2872535B00C5B079 /* InfoViewController.swift */; };
 		D627564F28725F3400C5B079 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627564E28725F3400C5B079 /* PaddingLabel.swift */; };
 		D6275651287264FD00C5B079 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6275650287264FD00C5B079 /* InfoModel.swift */; };
+		D6275675287635C200C5B079 /* AuthViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6275674287635BF00C5B079 /* AuthViewVC.swift */; };
+		D6275677287635DF00C5B079 /* WebKitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6275676287635DF00C5B079 /* WebKitVC.swift */; };
 		D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DC286BD1DB0009E992 /* AppDelegate.swift */; };
 		D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */; };
 		D67A72E1286BD1DB0009E992 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A72E0286BD1DB0009E992 /* PicturesViewController.swift */; };
@@ -36,6 +38,8 @@
 		D627564C2872535B00C5B079 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		D627564E28725F3400C5B079 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D6275650287264FD00C5B079 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		D6275674287635BF00C5B079 /* AuthViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewVC.swift; sourceTree = "<group>"; };
+		D6275676287635DF00C5B079 /* WebKitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitVC.swift; sourceTree = "<group>"; };
 		D67A72D9286BD1DB0009E992 /* CourseProjectMediasoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseProjectMediasoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67A72DC286BD1DB0009E992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67A72DE286BD1DB0009E992 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 		D62756332870173200C5B079 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D627567828763BF200C5B079 /* Auth */,
 				D627564B2872531200C5B079 /* PicturesView */,
 				D67A72F3286BE7870009E992 /* ProfileViewController.swift */,
 				D627564C2872535B00C5B079 /* InfoViewController.swift */,
@@ -98,6 +103,15 @@
 				D62756432871E9A200C5B079 /* WaterFallLayout.swift */,
 			);
 			path = PicturesView;
+			sourceTree = "<group>";
+		};
+		D627567828763BF200C5B079 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D6275674287635BF00C5B079 /* AuthViewVC.swift */,
+				D6275676287635DF00C5B079 /* WebKitVC.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		D67A72D0286BD1DB0009E992 = {
@@ -245,7 +259,9 @@
 				D67A72F6286F85970009E992 /* PIcturesCollectionViewCell.swift in Sources */,
 				D6275651287264FD00C5B079 /* InfoModel.swift in Sources */,
 				D67A72DD286BD1DB0009E992 /* AppDelegate.swift in Sources */,
+				D6275677287635DF00C5B079 /* WebKitVC.swift in Sources */,
 				D67A72DF286BD1DB0009E992 /* SceneDelegate.swift in Sources */,
+				D6275675287635C200C5B079 /* AuthViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
