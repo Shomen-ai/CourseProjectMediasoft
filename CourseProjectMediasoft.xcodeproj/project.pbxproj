@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D625BB0D287705790071F2CD /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625BB0C287705790071F2CD /* UserData.swift */; };
 		D62756362870671C00C5B079 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62756352870671C00C5B079 /* APIService.swift */; };
 		D627563828719F9400C5B079 /* APIDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627563728719F9400C5B079 /* APIDataFetcher.swift */; };
 		D627563B2871A01700C5B079 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627563A2871A01700C5B079 /* SearchResult.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D625BB0C287705790071F2CD /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D62756352870671C00C5B079 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D627563728719F9400C5B079 /* APIDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataFetcher.swift; sourceTree = "<group>"; };
 		D627563A2871A01700C5B079 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				D627563A2871A01700C5B079 /* SearchResult.swift */,
 				D627564E28725F3400C5B079 /* PaddingLabel.swift */,
 				D6275650287264FD00C5B079 /* InfoModel.swift */,
+				D625BB0C287705790071F2CD /* UserData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			files = (
 				D627564F28725F3400C5B079 /* PaddingLabel.swift in Sources */,
 				D67A72F1286BDBCC0009E992 /* NavigationViewController.swift in Sources */,
+				D625BB0D287705790071F2CD /* UserData.swift in Sources */,
 				D627564D2872535C00C5B079 /* InfoViewController.swift in Sources */,
 				D627563B2871A01700C5B079 /* SearchResult.swift in Sources */,
 				D62756362870671C00C5B079 /* APIService.swift in Sources */,

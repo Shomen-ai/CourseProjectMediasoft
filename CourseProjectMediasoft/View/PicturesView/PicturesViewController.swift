@@ -14,6 +14,7 @@ class PicturesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         setupNavigationBar()
+        navigationController?.tabBarController?.tabBar.isHidden = false
         view.addSubview(collectionView)
         view.addSubview(spinner)
         setupCollectionViewConstraints()

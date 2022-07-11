@@ -4,6 +4,7 @@ import UIKit
 class APIDataFetcher {
 
     var apiService = APIService()
+    var userAcсess = UserAccess()
 
     func fetchImages(searchString: String, completion: @escaping (SearchResult?) -> Void) {
         apiService.requestForPhotos(searchString: searchString) { data, error in
@@ -18,7 +19,7 @@ class APIDataFetcher {
         }
     }
 
-    func fetchUserAccess(code: String, completion: @escaping (SearchResult?) -> Void) {
+    func fetchUserAccess(code: String, completion: @escaping (UserAccess?) -> Void) {
         apiService.requestUrlTokenAuth(code: code) { data, error in
             guard let data = data, error == nil else {
                 print("Error recevied requasting data: \(error?.localizedDescription ?? "Unknown error")")
@@ -26,7 +27,7 @@ class APIDataFetcher {
                 return
             }
 
-            let decode = self.decodeJSON(type: SearchResult.self, from: data)
+            let decode = self.decodeJSON(type: UserAccess.self, from: data)
             completion(decode)
         }
     }

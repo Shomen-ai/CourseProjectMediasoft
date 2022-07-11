@@ -1,5 +1,4 @@
 import Foundation
-import WebKit
 
 class APIService {
     // MARK: - Search Photos

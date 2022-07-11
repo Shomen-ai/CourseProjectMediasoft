@@ -13,6 +13,7 @@ class NavigationViewController: UITabBarController {
         ]
         tabBar.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
+
     private func configureNavigationViewController(rootViewController: UIViewController,
                                                    title: String,
                                                    itemIcon: UIImage) -> UIViewController {
